@@ -19,7 +19,7 @@ const HomePage = () => {
   };
 
   const handleExampleClick = () => {
-    navigate("/calculadora-interes-compuesto?example=true");
+    navigate("/ejemplo-interes-compuesto");
   };
 
   const features = [

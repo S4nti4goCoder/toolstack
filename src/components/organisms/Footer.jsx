@@ -5,15 +5,20 @@ const Footer = () => {
 
   return (
     <footer className="bg-white border-t border-gray-200 mt-auto">
-      <div className="container mx-auto px-4 py-4 lg:py-6">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 text-center md:text-left">
-          <div className="text-xs lg:text-sm text-gray-600">
-            Desarrollado por{" "}
-            <span className="font-semibold text-toolstack-primary">
-              Tu Nombre
-            </span>
+      <div className="container mx-auto px-4 py-4">
+        <div className="text-center">
+          <div className="text-sm text-gray-600 mb-1">
+            Desarrollado con ❤️ por{" "}
+            <a
+              href="https://github.com/S4nti4goCoder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-toolstack-primary hover:text-blue-600 transition-colors duration-200 hover:underline"
+            >
+              S4nti4goCoder
+            </a>
           </div>
-          <div className="text-xs lg:text-sm text-gray-500">
+          <div className="text-xs text-gray-500">
             © {currentYear} ToolStack. Todos los derechos reservados.
           </div>
         </div>

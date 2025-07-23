@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { Header } from "@/components/organisms/Header";
 import { Sidebar } from "@/components/organisms/Sidebar";
 import { Footer } from "@/components/organisms/Footer";
@@ -9,6 +10,8 @@ const AppLayout = ({
   title = "ToolStack - Herramientas Financieras",
   description = "Tu caja de herramientas financieras completa. Calcula, simula y optimiza tus inversiones.",
 }) => {
+  const location = useLocation();
+
   // Estados separados para desktop y mobile
   const [desktopSidebarState, setDesktopSidebarState] = useState("expanded"); // 'expanded', 'collapsed'
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
@@ -24,6 +27,9 @@ const AppLayout = ({
   const toggleMobileSidebar = () => {
     setMobileSidebarOpen(!mobileSidebarOpen);
   };
+
+  // Verificar si está activo
+  const isActive = location.pathname === "/calculadora-interes-compuesto";
 
   return (
     <>
@@ -101,10 +107,16 @@ const AppLayout = ({
                         window.location.href = "/calculadora-interes-compuesto";
                         setMobileSidebarOpen(false);
                       }}
-                      className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 cursor-pointer bg-toolstack-primary text-white shadow-sm"
+                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200 cursor-pointer ${
+                        isActive
+                          ? "bg-toolstack-primary text-white shadow-sm"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`}
                     >
                       <svg
-                        className="w-5 h-5 text-white"
+                        className={`w-5 h-5 ${
+                          isActive ? "text-white" : "text-gray-500"
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

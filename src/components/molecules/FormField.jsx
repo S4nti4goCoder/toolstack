@@ -22,7 +22,10 @@ const FormField = React.forwardRef(
         <Input
           id={id}
           ref={ref}
-          className={cn(error && "border-red-500 focus-visible:ring-red-500")}
+          className={cn(
+            error && "border-red-500 focus-visible:ring-red-500",
+            props.className
+          )}
           {...props}
         />
         {description && (
